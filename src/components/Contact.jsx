@@ -89,27 +89,44 @@ Feel free to reach out.
 
 <h3>Send Email</h3>
 
-<input type="text" placeholder="Your Name"/>
+<form action="https://formspree.io/f/xqeykjbg" method="POST">
 
-<input type="email" placeholder="Your Email"/>
+<input 
+type="text" 
+name="name"
+placeholder="Your Name"
+required
+/>
 
-<textarea placeholder="Message"></textarea>
+<input 
+type="email" 
+name="email"
+placeholder="Your Email"
+required
+/>
+
+<textarea 
+name="message"
+placeholder="Message"
+required
+></textarea>
 
 <div className="modal-buttons">
 
-<button
-onClick={()=>window.location.href=
-"mailto:nharikrishnan13@gmail.com?subject=Portfolio Contact"
-}
->
+<button type="submit">
 Send
 </button>
 
-<button onClick={()=>setOpen(false)}>
+<button 
+type="button"
+onClick={()=>setOpen(false)}
+>
 Close
 </button>
 
 </div>
+
+</form>
 
 </div>
 

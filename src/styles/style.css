@@ -1609,219 +1609,133 @@ transform:translateY(-4px);
 
 }
 
-/* =========================
-   MODAL BACKGROUND
-========================= */
-
 .contact-modal{
-
 position:fixed;
 top:0;
 left:0;
-
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,0.75);
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(6px);
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-backdrop-filter:blur(6px);
-
 z-index:1000;
 
-/* popup animation */
-animation:fadeIn .3s ease;
-
+animation:fadeIn 0.3s ease;
 }
-
-@keyframes fadeIn{
-
-from{
-opacity:0;
-}
-
-to{
-opacity:1;
-}
-
-}
-
-
-/* =========================
-   MODAL BOX
-========================= */
-
 .modal-box{
-
-background:linear-gradient(
-145deg,
-#0f172a,
-#020617
-);
-
-padding:40px;
-
-border-radius:18px;
-
 width:420px;
+background:#0f172a;
+
+padding:35px;
+border-radius:16px;
 
 display:flex;
 flex-direction:column;
+gap:18px;
 
-gap:16px;
+border:1px solid #1e293b;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
 
-border:1px solid rgba(255,255,255,0.06);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,0.6),
-0 0 30px rgba(99,102,241,0.15);
-
-/* popup scale animation */
-
-animation:modalScale .35s ease;
-
+animation:slideUp 0.35s ease;
 }
-
-@keyframes modalScale{
-
-from{
-transform:scale(.85);
-opacity:0;
+.modal-box h3{
+font-size:22px;
+font-weight:600;
+color:#f1f5f9;
+text-align:center;
+margin-bottom:5px;
 }
-
-to{
-transform:scale(1);
-opacity:1;
-}
-
-}
-
-
-/* =========================
-   INPUT FIELDS
-========================= */
-
 .modal-box input,
 .modal-box textarea{
 
+width:100%;
 padding:12px 14px;
 
-border-radius:10px;
-
-border:1px solid rgba(255,255,255,0.08);
-
-background:#1e293b;
-
-color:white;
-
-font-size:14px;
-
-transition:0.3s;
-
-}
-
-
-/* input focus */
-
-.modal-box input:focus,
-.modal-box textarea:focus{
-
-outline:none;
-
-border-color:#6366f1;
-
-box-shadow:0 0 12px rgba(99,102,241,0.35);
-
-background:#111827;
-
-}
-
-
-/* textarea resize */
-
-.modal-box textarea{
-
-resize:none;
-min-height:100px;
-
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.modal-buttons{
-
-display:flex;
-gap:12px;
-margin-top:10px;
-
-}
-
-
-/* primary send button */
-
-.modal-buttons button{
-
-padding:10px 22px;
+background:#020617;
+border:1px solid #1e293b;
 
 border-radius:8px;
 
-border:none;
-
+color:#e2e8f0;
 font-size:14px;
 
+outline:none;
+transition:all 0.25s ease;
+}
+.modal-box input:focus,
+.modal-box textarea:focus{
+
+border-color:#6366f1;
+box-shadow:0 0 0 1px #6366f1;
+}
+.modal-box textarea{
+min-height:110px;
+resize:none;
+}
+.modal-buttons{
+display:flex;
+gap:12px;
+margin-top:10px;
+}
+.modal-buttons button[type="submit"]{
+
+flex:1;
+padding:11px;
+
+background:#6366f1;
+border:none;
+border-radius:8px;
+
+color:white;
+font-weight:500;
+cursor:pointer;
+
+transition:0.25s;
+}
+
+.modal-buttons button[type="submit"]:hover{
+background:#4f46e5;
+transform:translateY(-1px);
+}
+.modal-buttons button[type="button"]{
+
+flex:1;
+padding:11px;
+
+background:#1e293b;
+border:none;
+border-radius:8px;
+
+color:#cbd5f5;
 font-weight:500;
 
 cursor:pointer;
-
-background:linear-gradient(
-135deg,
-#6366f1,
-#ec4899
-);
-
-color:white;
-
-transition:0.3s;
-
+transition:0.25s;
 }
 
-
-/* hover glow */
-
-.modal-buttons button:hover{
-
-transform:translateY(-2px);
-
-box-shadow:0 8px 20px rgba(99,102,241,0.4);
-
-}
-
-
-/* close button */
-
-.modal-buttons button:last-child{
-
-background:#1e293b;
-
-border:1px solid rgba(255,255,255,0.1);
-
-}
-
-
-/* close hover */
-
-.modal-buttons button:last-child:hover{
-
+.modal-buttons button[type="button"]:hover{
 background:#334155;
-
+}
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
 }
 
+@keyframes slideUp{
+from{
+transform:translateY(40px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
 
 /* =========================
    CONTACT CARD HOVER
