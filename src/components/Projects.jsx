@@ -58,8 +58,8 @@ title:"Portfolio",
 desc:"A Personal Portfolio",
 tech:["React","CSS"],
 icon:"💼",
-live:"#",
-code:"#"
+live:"https://harikrishnan2802.github.io/React-Portfolio/",
+code:"https://github.com/Harikrishnan2802/React-Portfolio"
 }
 
 
