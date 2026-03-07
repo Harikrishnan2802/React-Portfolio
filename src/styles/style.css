@@ -1270,20 +1270,54 @@ color:transparent;
 
 }
 
+.projects-row{
+overflow:hidden;
+width:100%;
+margin-bottom:40px;
+}
+.projects-track{
 
-/* GRID */
-
-.projects-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
+display:flex;
 gap:40px;
+width:max-content;
+
+}
+.project-card{
+min-width:380px;
+flex-shrink:0;
+}
+.scroll-left{
+animation:scrollLeft 30s linear infinite;
+}
+.scroll-right{
+animation:scrollRight 30s linear infinite;
+}
+@keyframes scrollLeft{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+@keyframes scrollRight{
+
+0%{
+transform:translateX(-50%);
+}
+
+100%{
+transform:translateX(0);
+}
 
 }
 
-
+.projects-track:hover{
+animation-play-state:paused;
+}
 /* CARD */
 
 .project-card{
@@ -1685,58 +1719,79 @@ margin-top:10px;
 .modal-buttons button[type="submit"]{
 
 flex:1;
-padding:11px;
 
-background:#6366f1;
+padding:12px 0;
+
+border-radius:10px;
 border:none;
-border-radius:8px;
 
-color:white;
-font-weight:500;
+font-size:14px;
+font-weight:600;
+
 cursor:pointer;
 
-transition:0.25s;
-}
+color:white;
 
+background:linear-gradient(
+135deg,
+#6366f1,
+#ec4899
+);
+
+transition:all .3s ease;
+
+}
 .modal-buttons button[type="submit"]:hover{
-background:#4f46e5;
-transform:translateY(-1px);
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 30px rgba(99,102,241,.45);
+
 }
 .modal-buttons button[type="button"]{
 
 flex:1;
-padding:11px;
 
-background:#1e293b;
-border:none;
-border-radius:8px;
+padding:12px 0;
 
-color:#cbd5f5;
+border-radius:10px;
+
+font-size:14px;
 font-weight:500;
 
 cursor:pointer;
-transition:0.25s;
-}
 
+background:transparent;
+
+color:#cbd5f5;
+
+border:1px solid rgba(255,255,255,0.15);
+
+transition:all .25s ease;
+
+}
 .modal-buttons button[type="button"]:hover{
-background:#334155;
+
+background:rgba(255,255,255,0.05);
+
+border-color:#6366f1;
+
+color:white;
+
 }
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
+.modal-box input::placeholder,
+.modal-box textarea::placeholder{
+color:#64748b;
+}
+@media(max-width:500px){
+
+.modal-box{
+width:90%;
+padding:25px;
 }
 
-@keyframes slideUp{
-from{
-transform:translateY(40px);
-opacity:0;
 }
-to{
-transform:translateY(0);
-opacity:1;
-}
-}
-
 /* =========================
    CONTACT CARD HOVER
 ========================= */
@@ -1760,5 +1815,195 @@ box-shadow:0 15px 40px rgba(99,102,241,0.25);
 .contact-card:hover .contact-hint{
 
 color:#6366f1;
+
+}
+
+/*---------Tablet-------*/
+@media (max-width:1024px){
+
+section{
+padding:80px 60px;
+}
+
+/* HERO */
+
+.hero{
+flex-direction:column;
+text-align:center;
+height:auto;
+gap:50px;
+}
+
+.hero-left{
+width:100%;
+max-width:700px;
+}
+
+.hero-right{
+width:100%;
+}
+
+.hero-image{
+width:300px;
+height:300px;
+}
+
+
+/* ABOUT */
+
+.about-wrapper{
+flex-direction:column;
+text-align:center;
+}
+
+.about-card{
+width:280px;
+height:280px;
+font-size:60px;
+}
+
+.about-title{
+font-size:48px;
+}
+
+
+/* SKILLS */
+
+.skills-cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+
+/* PROJECTS */
+
+.project-card{
+min-width:320px;
+}
+
+
+/* CONTACT */
+
+.contact-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/*-------Mobile---------*/
+@media (max-width:768px){
+
+section{
+padding:70px 30px;
+}
+
+/* NAVBAR */
+
+.nav-links{
+display:none;
+}
+
+
+/* HERO */
+
+.hero-title{
+font-size:36px;
+white-space:normal;
+}
+
+.hero-role{
+font-size:20px;
+}
+
+.hero-desc{
+font-size:15px;
+}
+
+.hero-image{
+width:220px;
+height:220px;
+}
+
+
+/* ABOUT */
+
+.about{
+padding:80px 30px;
+}
+
+.about-title{
+font-size:36px;
+}
+
+.about-text{
+font-size:16px;
+}
+
+
+/* SKILLS */
+
+.skills-title{
+font-size:36px;
+}
+
+.skills-cards{
+grid-template-columns:1fr;
+}
+
+
+/* TIMELINE */
+
+.timeline-section{
+padding:80px 30px;
+}
+
+
+/* PROJECTS */
+
+.projects-section{
+padding:80px 30px;
+}
+
+.project-card{
+min-width:280px;
+padding:30px;
+}
+
+
+/* CONTACT */
+
+.contact-section{
+padding:80px 30px;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+/*---------Small Mobile---------*/
+
+@media (max-width:480px){
+
+.hero-left{
+padding:30px;
+}
+
+.hero-title{
+font-size:30px;
+}
+
+.download-btn{
+width:100%;
+}
+
+.project-card{
+min-width:260px;
+}
+
+.modal-box{
+width:90%;
+padding:25px;
+}
 
 }

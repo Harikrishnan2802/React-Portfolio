@@ -68,7 +68,7 @@ Feel free to reach out.
 
 <div className="contact-social">
 
-<a href="https://instagram/hari_krishnan98/.com">
+<a href="https://www.instagram.com/hari_krishnan98/">
 <FaInstagram/>
 </a>
 

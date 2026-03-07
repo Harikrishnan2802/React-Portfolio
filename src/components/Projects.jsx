@@ -1,5 +1,6 @@
 import { SiPhp, SiMysql, SiJavascript } from "react-icons/si"
 import { FaCode } from "react-icons/fa"
+import { useEffect, useRef } from "react"
 
 import { 
 FaChartBar,
@@ -54,7 +55,7 @@ code:"#"
 },
 
 {
-title:"Portfolio",
+title:"My Personal Portfolio",
 desc:"A Personal Portfolio",
 tech:["React","CSS"],
 icon:"💼",
@@ -67,39 +68,37 @@ code:"https://github.com/Harikrishnan2802/React-Portfolio"
 
 function Projects(){
 
+const firstRow = projects.slice(0,3)
+const secondRow = projects.slice(3,6)
+
 return(
 
 <section className="projects-section" id="projects">
 
 <h2 className="projects-title">Featured Projects</h2>
 
-<div className="projects-grid">
+{/* FIRST ROW */}
 
-{projects.map((p,i)=>(
+<div className="projects-row">
+
+<div className="projects-track scroll-left">
+
+{[...firstRow,...firstRow].map((p,i)=>(
 
 <div className="project-card" key={i}>
 
-<div className="project-icon">
-{p.icon}
-</div>
-
+<div className="project-icon">{p.icon}</div>
 
 <div className="tech-badges">
-
 {p.tech.map((t,index)=>(
 <span key={index}>{t}</span>
 ))}
-
 </div>
 
-
 <h3>{p.title}</h3>
-
 <p>{p.desc}</p>
 
-
 <div className="project-buttons">
-
 <a href={p.live} className="btn-live">
 <FaExternalLinkAlt/> Live
 </a>
@@ -107,7 +106,6 @@ return(
 <a href={p.code} className="btn-code">
 <FaGithub/> Code
 </a>
-
 </div>
 
 </div>
@@ -116,10 +114,51 @@ return(
 
 </div>
 
+</div>
+
+
+{/* SECOND ROW */}
+
+<div className="projects-row">
+
+<div className="projects-track scroll-right">
+
+{[...secondRow,...secondRow].map((p,i)=>(
+
+<div className="project-card" key={i}>
+
+<div className="project-icon">{p.icon}</div>
+
+<div className="tech-badges">
+{p.tech.map((t,index)=>(
+<span key={index}>{t}</span>
+))}
+</div>
+
+<h3>{p.title}</h3>
+<p>{p.desc}</p>
+
+<div className="project-buttons">
+<a href={p.live} className="btn-live">
+<FaExternalLinkAlt/> Live
+</a>
+
+<a href={p.code} className="btn-code">
+<FaGithub/> Code
+</a>
+</div>
+
+</div>
+
+))}
+
+</div>
+
+</div>
+
 </section>
 
 )
-
 }
 
 export default Projects
