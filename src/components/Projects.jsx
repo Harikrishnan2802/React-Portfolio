@@ -14,7 +14,7 @@ title:"Online Examination System",
 desc:"Secure exam platform with login authentication, question management, and automated scoring.",
 tech:["PHP","MySQL"],
 icon:"💻",
-live:"#",
+live:"https://brainbattle.free.nf/",
 code:"https://github.com/Harikrishnan2802/Online-examination-system"
 },
 
