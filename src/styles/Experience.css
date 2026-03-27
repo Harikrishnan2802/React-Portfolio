@@ -1,0 +1,386 @@
+/* ─────────────────────────────────────────
+   Experience Page – CSS
+   Theme: Dark editorial / refined brutalism
+   Font: Syne (display) + DM Sans (body)
+───────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap");
+
+/* ── Variables ────────────────────────── */
+:root {
+  --bg: #0b0c0f;
+  --surface: #111318;
+  --border: rgba(255, 255, 255, 0.07);
+  --accent: #e8ff47;
+  --accent-dim: rgba(232, 255, 71, 0.12);
+  --accent-glow: rgba(232, 255, 71, 0.35);
+  --text-primary: #f0f0ee;
+  --text-secondary: #8a8a8a;
+  --text-muted: #484848;
+  --node-size: 18px;
+  --line-x: 30px;
+  --card-radius: 16px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Section ──────────────────────────── */
+.exp-section {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: "DM Sans", sans-serif;
+  color: var(--text-primary);
+  padding: 80px 24px 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Dot Grid Background ──────────────── */
+.exp-grid-bg {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.exp-grid-dot {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  margin: auto;
+}
+
+/* ── Container ────────────────────────── */
+.exp-container {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
+}
+
+.exp-container.exp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Header ───────────────────────────── */
+.exp-header {
+  margin-bottom: 72px;
+}
+
+.exp-eyebrow {
+  display: inline-block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.exp-title {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(52px, 10vw, 85px);
+  font-weight: 800;
+  line-height: 0.90;
+  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+  
+  /* ── MULTI-COLOR GRADIENT LOGIC ── */
+  background: linear-gradient(
+    135deg, 
+    #ffffff 0%,     /* Pure White */
+    #ffffff 40%,    /* Stay white for a bit */
+    #6366f1 70%,    /* Indigo Reveal */
+    #ec4899 100%    /* Pink Finish */
+  );
+  
+  /* Standard clip properties */
+  background-clip: text;
+  -webkit-background-clip: text; /* Required for Chrome/Safari */
+  
+  /* Make the actual text transparent so the background shows through */
+  color: transparent;
+  
+  /* Optional: Add a subtle text-shadow to make it "pop" against dark backgrounds */
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+.exp-accent {
+  color: var(--accent);
+}
+
+.exp-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ── Timeline ─────────────────────────── */
+.exp-timeline {
+  position: relative;
+  padding-left: calc(var(--line-x) + 40px);
+}
+
+.exp-timeline-line {
+  position: absolute;
+  left: var(--line-x);
+  top: 12px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent) 0%,
+    var(--border) 60%,
+    transparent 100%
+  );
+}
+
+/* ── Node ─────────────────────────────── */
+.exp-node {
+  position: absolute;
+  left: calc(var(--line-x) - var(--node-size) / 2);
+  top: 32px;
+  width: var(--node-size);
+  height: var(--node-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-node-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  animation: exp-pulse 2.8s ease-in-out infinite;
+}
+
+.exp-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes exp-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ── Card Wrapper ─────────────────────── */
+.exp-card-wrapper {
+  position: relative;
+  animation: exp-slide-in 0.7s var(--ease-out-expo) both;
+}
+
+@keyframes exp-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Card ─────────────────────────────── */
+.exp-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 36px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s var(--ease-out-expo);
+}
+
+.exp-card:hover {
+  border-color: rgba(232, 255, 71, 0.3);
+  transform: translateX(6px);
+}
+
+.exp-card:hover .exp-card-glow {
+  opacity: 1;
+}
+
+/* Card inner glow */
+.exp-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-radius);
+  background: radial-gradient(
+    circle at 0% 0%,
+    var(--accent-dim) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* ── Card Header ──────────────────────── */
+.exp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.exp-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(232, 255, 71, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.exp-card-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── Badges ───────────────────────────── */
+.exp-badge,
+.exp-location-badge {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.exp-badge {
+  background: var(--accent);
+  color: #0b0c0f;
+}
+
+.exp-location-badge {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+/* ── Card Body ────────────────────────── */
+.exp-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.exp-role {
+  font-family: "Syne", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.exp-company {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--accent);
+  margin: 0 0 14px;
+  letter-spacing: 0.01em;
+}
+
+.exp-duration {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.exp-clock {
+  font-size: 14px;
+}
+
+.exp-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0 0 28px;
+  font-weight: 300;
+}
+
+/* ── Skills ───────────────────────────── */
+.exp-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-skill-tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.exp-skill-tag:hover {
+  background: var(--accent-dim);
+  border-color: rgba(232, 255, 71, 0.3);
+  color: var(--accent);
+}
+
+/* ── Responsive ───────────────────────── */
+@media (max-width: 600px) {
+  .exp-section {
+    padding: 60px 16px 80px;
+  }
+
+  .exp-timeline {
+    padding-left: calc(var(--line-x) + 28px);
+  }
+
+  .exp-card {
+    padding: 24px 20px;
+  }
+
+  .exp-title {
+    font-size: 48px;
+  }
+
+  .exp-role {
+    font-size: 20px;
+  }
+}

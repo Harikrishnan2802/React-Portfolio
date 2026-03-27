@@ -9,6 +9,7 @@ FaDatabase
 
 import { SiMysql, SiPhp } from "react-icons/si";
 import { FaChartBar } from "react-icons/fa";
+import "../styles/skill.css";
 
 function Skills(){
 

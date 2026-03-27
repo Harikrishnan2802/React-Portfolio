@@ -25,11 +25,12 @@ return (
 
 <ul className="nav-links">
 
-<li><a href="#about">About</a></li>
-<li><a href="#academicTimeline">Academic Timeline</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#experience">Experience</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#academicTimeline">Education</a></li>
+  <li><a href="#contact">Contact</a></li>
 
 </ul>
 
