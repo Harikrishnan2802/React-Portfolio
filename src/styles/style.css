@@ -578,6 +578,63 @@ color:#6366f1;
   35% { opacity:0.9; }
   100%{ opacity:0; }
 }
+/* Update the Name sizing */
+.intro-name {
+  /* min-size, preferred-size (scales with width), max-size */
+  font-size: clamp(38px, 12vw, 112px) !important;
+  letter-spacing: 0.15em !important; /* Slightly tighter on mobile for readability */
+  text-align: center;
+}
+
+/* Update the Tagline sizing and layout */
+.intro-tagline {
+  gap: clamp(10px, 4vw, 36px) !important; 
+  margin-top: clamp(30px, 8vh, 58px) !important; 
+  font-size: clamp(10px, 2.5vw, 16px) !important; 
+  letter-spacing: clamp(0.4em, 1vw, 1.1em) !important;
+  width: 90%; /* Ensure it doesn't hit screen edges */
+  justify-content: center;
+}
+/* Adjust the main border container for mobile */
+@media (max-width: 768px) {
+  .intro-border {
+    inset: 4%; /* More breathing room on edges */
+  }
+
+  .intro-side-line {
+    display: none; /* Hide internal side lines on mobile to reduce clutter */
+  }
+
+  /* Adjust corner ornaments size */
+  .intro-corner.tl::before, .intro-corner.tr::before, 
+  .intro-corner.bl::before, .intro-corner.br::before { width: 16px; }
+  
+  .intro-corner.tl::after, .intro-corner.tr::after, 
+  .intro-corner.bl::after, .intro-corner.br::after { height: 16px; }
+
+  /* Adjust label positions */
+  .intro-index, .intro-year {
+    bottom: calc(4% + 10px);
+    font-size: 7px;
+  }
+}
+@media (max-height: 450px) and (orientation: landscape) {
+  .intro-root {
+    perspective: 500px; /* Flatten perspective so letters don't clip */
+  }
+  .intro-name {
+    font-size: clamp(30px, 10vh, 60px) !important;
+  }
+  .intro-tagline {
+    margin-top: 20px !important;
+  }
+  .intro-top-label {
+    display: none; /* Hide top label to save vertical space */
+  }
+}
+.intro-name-underline {
+  max-width: 90vw; /* Prevents overflow-x */
+}
 
 .intro-root.exit { animation: slideUp 0.72s cubic-bezier(0.77,0,0.18,1) forwards; }
 @keyframes slideUp { to { transform: translateY(-100%); } }

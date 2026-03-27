@@ -587,7 +587,91 @@
   .hero-title { font-size: clamp(36px,9vw,52px); white-space: normal; }
   .hero-desc  { max-width: 100%; }
 }
+/* ── Updated Right Section Scaling ────────────────── */
+.hero-right {
+  width: 45%; /* Slightly larger to balance the card */
+  max-width: 500px;
+}
 
+.hero-image {
+  /* Use aspect-ratio to keep it a perfect circle while scaling */
+  width: 100%; 
+  max-width: 380px; /* Cap size for large screens */
+  aspect-ratio: 1 / 1; 
+  height: auto;
+}
+
+/* ── Orbit Scaling (Relative to Parent) ───────────── */
+.orbit {
+  /* Instead of fixed px, use % of the hero-right container */
+  width: 120%; 
+  height: 120%;
+  max-width: none;
+}
+.orbit--2 { width: 145%; height: 145%; }
+/* ── Tablet & Small Laptop (1024px) ──────────────── */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 120px 40px 80px;
+    text-align: center;
+    gap: 80px;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+    max-width: 650px;
+    align-items: center; /* Center content in the card */
+  }
+
+  .hero-title {
+    justify-content: center;
+    white-space: normal; /* Allow name to wrap if needed */
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ── Mobile (480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 20px 60px;
+  }
+
+  .hero-left {
+    padding: 32px 24px;
+  }
+
+  /* Hide orbits on very small screens to reduce visual noise and improve performance */
+  .orbit {
+    display: none;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap; /* Allow stats to wrap on tiny screens */
+    gap: 20px;
+  }
+
+  .stat-divider {
+    display: none; /* Hide dividers when wrapped */
+  }
+}
+.hero-title {
+  font-size: clamp(32px, 8vw, 60px);
+  line-height: 1.1;
+  text-align: center;
+  flex-wrap: wrap; /* Critical for long names on mobile */
+  gap: 8px;
+}
 @media (max-width: 480px) {
   .hero       { padding: 60px 16px 48px; }
   .hero-left  { padding: 28px 20px; }

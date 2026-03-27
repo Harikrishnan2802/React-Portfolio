@@ -17,23 +17,40 @@ export default function Intro({ onComplete }) {
     return () => timers.forEach(clearTimeout)
   }, [onComplete])
 
+  // Combined Mouse and Touch listener for the spotlight effect
   useEffect(() => {
     const el = containerRef.current
     if (!el) return
-    const onMove = (e) => {
-      el.style.setProperty("--mx", e.clientX + "px")
-      el.style.setProperty("--my", e.clientY + "px")
+
+    const updateCoordinates = (x, y) => {
+      el.style.setProperty("--mx", `${x}px`)
+      el.style.setProperty("--my", `${y}px`)
     }
-    el.addEventListener("mousemove", onMove)
-    return () => el.removeEventListener("mousemove", onMove)
+
+    const onMouseMove = (e) => updateCoordinates(e.clientX, e.clientY)
+    const onTouchMove = (e) => {
+      if (e.touches[0]) {
+        updateCoordinates(e.touches[0].clientX, e.touches[0].clientY)
+      }
+    }
+
+    el.addEventListener("mousemove", onMouseMove)
+    el.addEventListener("touchmove", onTouchMove, { passive: true })
+
+    return () => {
+      el.removeEventListener("mousemove", onMouseMove)
+      el.removeEventListener("touchmove", onTouchMove)
+    }
   }, [])
 
   const nameLetters = "HARIKRISHNAN".split("")
 
   return (
-    <div ref={containerRef} className={`intro-root ${phase}`}>
-
-      {/* ── Ambient glow behind name ── */}
+    <div 
+      ref={containerRef} 
+      className={`intro-root ${phase}`}
+      aria-hidden="true" // Decorative intro
+    >
       <div className="intro-glow" />
 
       {/* ── 4-Side Border ── */}
@@ -54,12 +71,10 @@ export default function Intro({ onComplete }) {
       <div className="intro-side-line left" />
       <div className="intro-side-line right" />
 
-      {/* ── Top centre label ── */}
-      <div className="intro-top-label">Harikrishnan &middot; Portfolio</div>
-
-      {/* ── Bottom labels ── */}
-      <div className="intro-index">PORTFOLIO · 01</div>
-      <div className="intro-year">© 2025</div>
+      {/* ── Labels ── */}
+      <div className="intro-top-label">PORTFOLIO &middot; REVELATION</div>
+      <div className="intro-index">IDX · 001</div>
+      <div className="intro-year">EST. 2026</div>
 
       {/* ── Particle dots ── */}
       <div className="intro-particles">
@@ -70,24 +85,28 @@ export default function Intro({ onComplete }) {
 
       {/* ── Name ── */}
       <div className="intro-name-wrap">
-        <div className="intro-name">
+        <h1 className="intro-name">
           {nameLetters.map((l, i) => (
-            <span key={i} className="intro-letter">{l}</span>
+            <span 
+              key={i} 
+              className="intro-letter" 
+              style={{ "--i": i }} // Crucial for CSS stagger
+            >
+              {l === " " ? "\u00A0" : l}
+            </span>
           ))}
-        </div>
+        </h1>
         <div className="intro-name-underline" />
       </div>
 
       {/* ── Tagline ── */}
       <div className="intro-tagline">
         <span className="intro-tagline-line" />
-        Full Stack Developer
+        <span className="intro-tagline-text">Full Stack Developer</span>
         <span className="intro-tagline-line" />
       </div>
 
-      {/* ── Flash ── */}
       <div className="intro-flash" />
-
     </div>
   )
 }
