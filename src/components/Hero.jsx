@@ -83,12 +83,12 @@ function Hero() {
         </div>
 
         <h1 className="hero-title">
-          <span className={`har ${split ? "move-left" : ""}`}>HAR</span>
-          {expand && <span className="middle">IKRISHA</span>}
-          <span className={`on ${split ? "move-right" : ""}`}>
-            {expand ? "N" : "ON"}
-          </span>
-        </h1>
+  <span className={`har ${split ? "move-left" : ""}`}>HAR</span>
+  {expand && <span className="middle">IKRISHA</span>}
+  <span className={`on ${split ? "move-right" : ""}`}>
+    {expand ? "N" : "ON"}
+  </span>
+</h1>
 
         <h2 className="hero-role">
           <span className="role-prefix">&lt;</span>
