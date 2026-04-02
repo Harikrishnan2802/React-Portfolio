@@ -6,7 +6,7 @@ const experiences = [
     id: 1,
     role: "Web Development Intern",
     company: "Viyashra Group of Companies",
-    duration: "January 2025 – June 2025",
+    duration: "January 2026 – June 2026",
     type: "Internship",
     location: "On-site",
     description:
