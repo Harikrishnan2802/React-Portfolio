@@ -6,23 +6,25 @@ import Healthcare from "../assets/images/healthcare-powerbi.png";
 import In2in from "../assets/images/In2in.png";
 import Portfolio from "../assets/images/portfolio.png";
 import Healwise from "../assets/images/Healwise.png";
+import Handmade from "../assets/images/ecommerce.png"
+
 const projects = [
- {
-  title: "Online Examination System",
-  desc: "Secure exam platform...",
-  tech: ["PHP", "MySQL"],
-  image: Online,
-  color: "#6366f1",
-  live: "https://brainbattle.free.nf/",
-  code: "https://github.com/Harikrishnan2802/Online-examination-system",
-},
+  {
+    title: "Online Examination System",
+    desc: "Secure exam platform...",
+    tech: ["PHP", "MySQL"],
+    image: Online,
+    color: "#6366f1",
+    live: "https://brainbattle.free.nf/",
+    code: "https://github.com/Harikrishnan2802/Online-examination-system",
+  },
   {
     title: "HealWise",
     desc: "Health management web app with BMI tracking, first aid guidance, and emergency contacts.",
     tech: ["PHP", "MySQL"],
     image: Healwise,
     color: "#ec4899",
-    live: "#",
+    live: "https://harikrishnan2802.github.io/Not-deployed/",
     code: "#",
   },
   {
@@ -31,7 +33,7 @@ const projects = [
     tech: ["Power BI"],
     image: Accident,
     color: "#f59e0b",
-    live: "#",
+    live: "https://harikrishnan2802.github.io/Not-deployed/",
     code: "https://github.com/Harikrishnan2802/accident-dashboard-powerbi",
   },
   {
@@ -40,13 +42,13 @@ const projects = [
     tech: ["Power BI"],
     image: Healthcare,
     color: "#22c55e",
-    live: "#",
+    live: "https://harikrishnan2802.github.io/Not-deployed/",
     code: "https://github.com/Harikrishnan2802/PowerBI-HealthcareDashboard",
   },
   {
     title: "In2in Immigration Gateway",
     desc: "A web-based system for managing visa applications, candidate verification, and immigration processes in one centralized platform.",
-    tech: ["HTML", "CSS", "JS", "PHP","MYSql"],
+    tech: ["HTML", "CSS", "JS", "PHP", "MYSql"],
     image: In2in,
     color: "#06b6d4",
     live: "https://in2inimmigrationgateway.free.nf/",
@@ -60,6 +62,15 @@ const projects = [
     color: "#a855f7",
     live: "https://harikrishnan2802.github.io/React-Portfolio/",
     code: "https://github.com/Harikrishnan2802/React-Portfolio",
+  },
+  {
+    title: "E-Commerce for Handmade",
+    desc: "Handcrafted products made with care, crafted to tell your story.",
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "CSS"],
+    image: Handmade,
+    color: "#a855f7",
+    live: "https://harikrishnan2802.github.io/Not-deployed/",
+    code: "https://github.com/Harikrishnan2802/E-commerce-for-Handmade-Projects",
   },
 ]
 
@@ -76,12 +87,12 @@ function ProjectCard({ p }) {
         {/* background pattern */}
         <div className="project-bg-pattern" />
 
-        {/* big emoji */}
         {p.image ? (
-  <img src={p.image} alt={p.title} className="project-img-full" />
-) : (
-  <span className="project-emoji">{p.emoji}</span>
-)} 
+          <img src={p.image} alt={p.title} className="project-img-full" />
+        ) : (
+          <span className="project-emoji">{p.emoji}</span>
+        )}
+
         {/* tech badges inside visual */}
         <div className="project-tech-row">
           {p.tech.map((t, i) => (
@@ -125,8 +136,10 @@ function ProjectCard({ p }) {
 }
 
 function Projects() {
-  const row1 = projects.slice(0, 3)
-  const row2 = projects.slice(3, 6)
+  // Split into two rows — row1 gets 4 items, row2 gets remaining 3
+  const half = Math.ceil(projects.length / 2)
+  const row1 = projects.slice(0, half)
+  const row2 = projects.slice(half)
 
   return (
     <section className="projects-section" id="projects">
@@ -145,7 +158,7 @@ function Projects() {
             <span className="stat-label">Projects</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">3+</span>
+            <span className="stat-number">4+</span>
             <span className="stat-label">Live Apps</span>
           </div>
           <div className="stat-card">
