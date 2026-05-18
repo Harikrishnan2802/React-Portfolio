@@ -7,6 +7,7 @@ import In2in from "../assets/images/In2in.png";
 import Portfolio from "../assets/images/portfolio.png";
 import Healwise from "../assets/images/Healwise.png";
 import Handmade from "../assets/images/ecommerce.png"
+import Dental from "../assets/images/revanthdental.png"
 
 const projects = [
   {
@@ -18,6 +19,15 @@ const projects = [
     live: "https://brainbattle.free.nf/",
     code: "https://github.com/Harikrishnan2802/Online-examination-system",
   },
+   {
+    title: "Revanth Dental Clinic",
+desc: "A modern and responsive dental clinic website built using React and CSS, designed to provide a smooth user experience for patients. The website showcases clinic services, doctor details, appointment booking, contact information, and a professional interface that enhances the clinic’s online presence.",
+tech: ["React", "CSS"],
+image: Dental,
+color: "#6366f1",
+live: "https://revanthdentalclinic.com/",
+code: "https://github.com/Harikrishnan2802/Reventh-dental-Clinic",
+},
   {
     title: "HealWise",
     desc: "Health management web app with BMI tracking, first aid guidance, and emergency contacts.",
