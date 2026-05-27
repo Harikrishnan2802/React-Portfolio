@@ -8,6 +8,7 @@ import Portfolio from "../assets/images/portfolio.png";
 import Healwise from "../assets/images/Healwise.png";
 import Handmade from "../assets/images/ecommerce.png"
 import Dental from "../assets/images/revanthdental.png"
+import Khclinic from "../assets/images/khclinic.png"
 
 const projects = [
   {
@@ -27,6 +28,15 @@ image: Dental,
 color: "#6366f1",
 live: "https://revanthdentalclinic.com/",
 code: "https://github.com/Harikrishnan2802/Reventh-dental-Clinic",
+},
+{
+    title: "KH Clinic Care",
+desc: "Professional medical care, personalized for your loved ones in the comfort of your home. Compassionate support from experienced healthcare professionals across Puducherry.",
+tech: ["React", "CSS"],
+image: Khclinic,
+color: "#6366f1",
+live: "https://khclinicalcare.com/",
+code: "https://github.com/Harikrishnan2802/Kh-clinic",
 },
   {
     title: "HealWise",
